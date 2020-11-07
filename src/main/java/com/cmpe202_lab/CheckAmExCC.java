@@ -1,14 +1,11 @@
 package com.cmpe202_lab;
 
-import java.util.Date;
-
-public class CheckVisa {
-
+public class CheckAmExCC {
 	public boolean check(String creditCardNumber) {
 		char first= creditCardNumber.charAt(0);
-		if((creditCardNumber.length()==13||creditCardNumber.length()==16) && first=='4')
+		char second= creditCardNumber.charAt(1);
+		if(first=='3' && creditCardNumber.length()==15 && (second=='4' || second=='7'))
 			return true;
 		return false;
 	}
-	
 }

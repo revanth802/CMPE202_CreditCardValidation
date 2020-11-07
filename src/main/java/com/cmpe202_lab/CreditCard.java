@@ -4,38 +4,37 @@ import java.util.*;
 
 public class CreditCard {
 	protected String cardNumber;
-	protected Date expiryDate;
+	protected String expiryDate;
 	protected String name;
-	protected boolean valid_cc;
 	protected String type;
+	protected String valid_cc;
 	
 	/**
 	 * @param cardNumber
 	 * @param expiryDate
 	 * @param name
-	 * @param valid_cc
 	 * @param type
+	 * @param valid_cc
 	 */
 	
-	public CreditCard(String cardNumber, Date expiryDate, String name, boolean valid_cc, String type) {
+	public CreditCard(String cardNumber, String expiryDate, String name, String type, String valid_cc) {
 		super();
 		this.cardNumber = cardNumber;
 		this.expiryDate = expiryDate;
 		this.name = name;
-		this.valid_cc = valid_cc;
 		this.type = type;
+		this.valid_cc = valid_cc;
 	}
-	
 	public String getCardNumber() {
 		return cardNumber;
 	}
 	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
 	}
-	public Date getExpiryDate() {
+	public String getExpiryDate() {
 		return expiryDate;
 	}
-	public void setExpiryDate(Date expiryDate) {
+	public void setExpiryDate(String expiryDate) {
 		this.expiryDate = expiryDate;
 	}
 	public String getName() {
@@ -50,45 +49,47 @@ public class CreditCard {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public boolean getvalid_cc() {
+	public String getValid_cc() {
 		return valid_cc;
 	}
-	public void setValid(boolean valid_cc) {
+	public void setValid_cc(String valid_cc) {
 		this.valid_cc = valid_cc;
 	}
+	
+	
 
 }
 
-class MasterCard extends CreditCard{
+class MasterCC extends CreditCard{
 
-	public MasterCard(String cardNumber, Date expiryDate, String name, boolean valid_cc, String type) {
-		super(cardNumber, expiryDate, name, valid_cc, type);
+	public MasterCC(String cardNumber, String expiryDate, String name, String type, String valid_cc) {
+		super(cardNumber, expiryDate, name,type, valid_cc);
 		// TODO Auto-generated constructor stub
 	}
 	
 }
-class Visa extends CreditCard {
+class VisaCC extends CreditCard {
 
-	public Visa(String cardNumber, Date expiryDate, String name, boolean valid_cc, String type) {
-		super(cardNumber, expiryDate, name, valid_cc, type);
+	public VisaCC(String cardNumber, String expiryDate, String name, String type, String valid_cc) {
+		super(cardNumber, expiryDate, name,type, valid_cc);
 		// TODO Auto-generated constructor stub
 	}
 
 }
 
-class AmericanExpress extends CreditCard{
+class AmExCC extends CreditCard{
 
-	public AmericanExpress(String cardNumber, Date expiryDate, String name, boolean valid_cc, String type) {
-		super(cardNumber, expiryDate, name, valid_cc, type);
+	public AmExCC(String cardNumber, String expiryDate, String name, String type, String valid_cc) {
+		super(cardNumber, expiryDate, name,type, valid_cc);
 		// TODO Auto-generated constructor stub
 	}
 	
 }
 
-class Discover extends CreditCard{
+class DiscoverCC extends CreditCard{
 
-	public Discover(String cardNumber, Date expiryDate, String name, boolean valid_cc, String type) {
-		super(cardNumber, expiryDate, name, valid_cc, type);
+	public DiscoverCC(String cardNumber, String expiryDate, String name, String type, String valid_cc) {
+		super(cardNumber, expiryDate, name,type, valid_cc);
 		// TODO Auto-generated constructor stub
 	}
 	
