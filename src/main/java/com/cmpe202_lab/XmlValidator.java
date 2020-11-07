@@ -2,6 +2,7 @@ package com.cmpe202_lab;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -121,17 +122,13 @@ public class XmlValidator {
 	            record.appendChild(cctype);
 	            }
 	 
-	            // create the xml file
-	            //transform the DOM Object to an XML File
 	            TransformerFactory transformerFactory = TransformerFactory.newInstance();
 	            Transformer transformer = transformerFactory.newTransformer();
+	            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+	            document.setXmlStandalone(true);
+	            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
 	            DOMSource domSource = new DOMSource(document);
 	            StreamResult streamResult = new StreamResult(new File(output));
-	 
-	            // If you use
-	            // StreamResult result = new StreamResult(System.out);
-	            // the output will be pushed to the standard output ...
-	            // You can use that for debugging 
 	 
 	            transformer.transform(domSource, streamResult);
 	 

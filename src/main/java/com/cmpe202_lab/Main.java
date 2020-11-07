@@ -10,8 +10,8 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String inputFile="sample.xml";
-		String outputFile="sample1.xml";
+		String inputFile="sample.json";
+		String outputFile="sample1.json";
 		
 		ArrayList<CreditCard> output=new ArrayList<>();
 		
@@ -30,6 +30,7 @@ public class Main {
 			JsonValidator jsonv= new JsonValidator();
 			try {
 				output= jsonv.validate(inputFile);
+				JsonValidator.convertToJSON(output, outputFile);
 			}
 			catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -46,7 +47,6 @@ public class Main {
 				output= xmlv.validate(inputFile);
 				xmlv.convertToXML(output, outputFile);
 			
-		
 			
 		}
 	}
