@@ -16,7 +16,7 @@ import org.w3c.dom.Element;
 import java.io.File;
 import java.util.ArrayList;
 
-public class XmlValidator {
+public class XmlValidator implements Validator{
 	
 	public ArrayList<CreditCard> validate(String input){
 		CheckMasterCard check1= new CheckMasterCard();
@@ -46,7 +46,10 @@ public class XmlValidator {
 		double temp= Double.valueOf(ccnumber);
 		ccnumber= String.format("%.0f",temp);;
 //		System.out.println(ccnumber);
-		
+//		if(CheckSum.check(ccnumber)) {
+//   		 CreditCard e= new CreditCard(ccnumber,expd,name,"","error");
+//    			store.add(e);
+//   	 }
 		if(check1.check(ccnumber)) {
 			CreditCard e= new CreditCard(ccnumber,expd,name,"MasterCard","valid");
 			store.add(e);
@@ -78,7 +81,7 @@ public class XmlValidator {
 
 }
 
-	public void convertToXML(ArrayList<CreditCard> cards,String output) {
+	public void convertFormat(ArrayList<CreditCard> cards,String output) {
 		
 		 try {
 			 

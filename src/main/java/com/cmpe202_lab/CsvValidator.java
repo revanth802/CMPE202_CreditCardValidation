@@ -3,15 +3,17 @@ package com.cmpe202_lab;
 import java.io.*;
 import java.util.ArrayList;
 
-public class CsvValidator {
+public class CsvValidator implements Validator{
 	
 public ArrayList<CreditCard> validate(String input) throws IOException {
 	
 	ArrayList<CreditCard> store= new ArrayList<CreditCard>();
+//	CheckSum checksum=new CheckSum();
 	CheckMasterCard check1= new CheckMasterCard();
 	CheckVisa check2= new CheckVisa();
 	CheckAmExCC check3= new CheckAmExCC();
 	CheckDiscover check4 =new CheckDiscover();
+	
 	
 	String line="";
 	String splitBy=",";
@@ -23,8 +25,12 @@ public ArrayList<CreditCard> validate(String input) throws IOException {
 		String[] Credit = line.split(splitBy);    // use comma as separator  
 		double temp= Double.valueOf(Credit[0]);
 		String ccnumber= String.format("%.0f",temp);;
-//		System.out.println(ccnumber);
 		
+//		System.out.println(ccnumber);
+//		if(CheckSum.check(ccnumber)) {
+//   		 CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],"","error");
+//    			store.add(e);
+//   	 }
 		if(check1.check(ccnumber)) {
 			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],"MasterCard","valid");
 			store.add(e);
@@ -65,14 +71,14 @@ public ArrayList<CreditCard> validate(String input) throws IOException {
 	return store;
 }
 
-public static void convertToCSV(ArrayList<CreditCard> Cards, String outputFile) {
+public void convertFormat(ArrayList<CreditCard> Cards, String outputFile) {
 
 	try (PrintWriter writer = new PrintWriter(new File(outputFile))) {
 
 	      StringBuilder sb = new StringBuilder();
 	      sb.append("CardNumber,ExpirationDate,NameOfCardHolder,IsValid,Type");
 	      sb.append('\n');
-
+//	      System.out.println(Cards.size());
 	      for (CreditCard card: Cards) {
 				sb.append(card.getCardNumber()+','+card.getExpiryDate()+','+card.getName()+','+card.getValid_cc()+',');
 				sb.append(card.getType()+'\n');

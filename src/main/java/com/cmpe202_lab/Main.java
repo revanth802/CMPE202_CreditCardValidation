@@ -7,19 +7,20 @@ import org.json.simple.parser.ParseException;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		String inputFile="sample.json";
-		String outputFile="sample1.json";
+		String inputFile="sample.csv";
+		String outputFile="sample1.csv";
 		
 		ArrayList<CreditCard> output=new ArrayList<>();
 		
 		if(inputFile.contains(".csv")) {
-			CsvValidator csv= new CsvValidator();
+//			CsvValidator csv= new CsvValidator();
+			Context csv = new Context(new CsvValidator());
 			try {
-				output =csv.validate(inputFile);
-				CsvValidator.convertToCSV(output, outputFile);
+				output =csv.executeValidate(inputFile);
+				csv.executeConvertFormat(output, outputFile);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -27,25 +28,24 @@ public class Main {
 		}
 		
 		if(inputFile.contains(".json")){
-			JsonValidator jsonv= new JsonValidator();
+//			JsonValidator jsonv= new JsonValidator();
+			Context jsonv = new Context(new JsonValidator());
 			try {
-				output= jsonv.validate(inputFile);
-				JsonValidator.convertToJSON(output, outputFile);
+				output= jsonv.executeValidate(inputFile);
+				jsonv.executeConvertFormat(output, outputFile);
 			}
 			catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			} 
 				
 	}
 
 		if(inputFile.contains(".xml")){
-			XmlValidator xmlv= new XmlValidator();
-				output= xmlv.validate(inputFile);
-				xmlv.convertToXML(output, outputFile);
+//			XmlValidator xmlv= new XmlValidator();
+			Context xmlv = new Context(new XmlValidator());
+				output= xmlv.executeValidate((inputFile));
+				xmlv.executeConvertFormat(output, outputFile);
 			
 			
 		}

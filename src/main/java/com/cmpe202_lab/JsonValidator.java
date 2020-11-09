@@ -15,14 +15,15 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject; 
 import org.json.simple.parser.*; 
 
-public class JsonValidator {
+public class JsonValidator implements Validator{
 	 
-	public ArrayList<CreditCard> validate(String input) throws FileNotFoundException, ParseException{
+	public ArrayList<CreditCard> validate(String input) throws FileNotFoundException{
 		ArrayList<CreditCard> store= new ArrayList<CreditCard>();
 		CheckMasterCard check1= new CheckMasterCard();
 		CheckVisa check2= new CheckVisa();
 		CheckAmExCC check3= new CheckAmExCC();
 		CheckDiscover check4 =new CheckDiscover();
+//		CheckSum checkSum= new CheckSum();
 		 JSONParser jsonParser = new JSONParser();
          
 	        try (FileReader reader = new FileReader(input))
@@ -54,7 +55,10 @@ public class JsonValidator {
 	            	 name=name.replace("\"","");
 	            	 name=name.replace("}","");
 //	            	 name=name.substring(1, split3[1].length()-1);
-	            	 
+//	            	 if(CheckSum.check(ccnumber)) {
+//	            		 CreditCard e= new CreditCard(ccnumber,expd,name,"","error");
+//		         			store.add(e);
+//	            	 }
 	            	 if(check1.check(ccnumber)) {
 	         			CreditCard e= new CreditCard(ccnumber,expd,name,"MasterCard","valid");
 	         			store.add(e);
@@ -91,7 +95,7 @@ public class JsonValidator {
 		
 		}
 	
-	public static void convertToJSON(ArrayList<CreditCard> cards, String outputFile) {
+	public void convertFormat(ArrayList<CreditCard> cards, String outputFile) {
 		JSONArray ccList = new JSONArray();
 		for(CreditCard cc:cards) {
 //			CardNumber,ExpirationDate,NameOfCardHolder,IsValid,Type
