@@ -14,6 +14,9 @@ public ArrayList<CreditCard> validate(String input) throws IOException {
 	CheckAmExCC check3= new CheckAmExCC();
 	CheckDiscover check4 =new CheckDiscover();
 	
+	check1.setNextCard(check2);
+	check2.setNextCard(check3);
+	check3.setNextCard(check4);
 	
 	String line="";
 	String splitBy=",";
@@ -31,24 +34,14 @@ public ArrayList<CreditCard> validate(String input) throws IOException {
 //   		 CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],"","error");
 //    			store.add(e);
 //   	 }
-		if(check1.check(ccnumber)) {
-			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],"MasterCard","valid");
-			store.add(e);
-		}
-		else if(check2.check(ccnumber)) {
-			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],"Visa","valid");
-			store.add(e);
-		}
-		else if(check3.check(ccnumber)) {
-			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],"American Express","valid");
-			store.add(e);
-		}
-		else if(check4.check(ccnumber)) {
-			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],"Discover","valid");
+		
+		String checkhere= check1.check(ccnumber);
+		if(!checkhere.equals("N/A")) {
+			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],checkhere,"valid");
 			store.add(e);
 		}
 		else {
-			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],"","error");
+			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],checkhere,"error");
 			store.add(e);
 		}
 		

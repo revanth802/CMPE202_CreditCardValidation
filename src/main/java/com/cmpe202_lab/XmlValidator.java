@@ -23,6 +23,10 @@ public class XmlValidator implements Validator{
 		CheckVisa check2= new CheckVisa();
 		CheckAmExCC check3= new CheckAmExCC();
 		CheckDiscover check4 =new CheckDiscover();
+	
+		check1.setNextCard(check2);
+		check2.setNextCard(check3);
+		check3.setNextCard(check4);
 		ArrayList<CreditCard> store= new ArrayList<CreditCard>();
 		try   
 		{  
@@ -45,29 +49,14 @@ public class XmlValidator implements Validator{
 		String name=eElement.getElementsByTagName("NameOfCardholder").item(0).getTextContent();  
 		double temp= Double.valueOf(ccnumber);
 		ccnumber= String.format("%.0f",temp);;
-//		System.out.println(ccnumber);
-//		if(CheckSum.check(ccnumber)) {
-//   		 CreditCard e= new CreditCard(ccnumber,expd,name,"","error");
-//    			store.add(e);
-//   	 }
-		if(check1.check(ccnumber)) {
-			CreditCard e= new CreditCard(ccnumber,expd,name,"MasterCard","valid");
-			store.add(e);
-		}
-		else if(check2.check(ccnumber)) {
-			CreditCard e= new CreditCard(ccnumber,expd,name,"Visa","valid");
-			store.add(e);
-		}
-		else if(check3.check(ccnumber)) {
-			CreditCard e= new CreditCard(ccnumber,expd,name,"American Express","valid");
-			store.add(e);
-		}
-		else if(check4.check(ccnumber)) {
-			CreditCard e= new CreditCard(ccnumber,expd,name,"Discover","valid");
+
+		String checkhere= check1.check(ccnumber);
+		if(!checkhere.equals("N/A")) {
+			CreditCard e= new CreditCard(ccnumber,expd,name,checkhere,"valid");
 			store.add(e);
 		}
 		else {
-			CreditCard e= new CreditCard(ccnumber,expd,name,"","error");
+			CreditCard e= new CreditCard(ccnumber,expd,name,checkhere,"error");
 			store.add(e);
 		}
 		}  
