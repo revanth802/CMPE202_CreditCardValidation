@@ -6,5 +6,7 @@ public class DiscoverCC extends CreditCard{
 		super(cardNumber, expiryDate, name,type, valid_cc);
 		// TODO Auto-generated constructor stub
 	}
+//	@Override
+//	
 	
 }

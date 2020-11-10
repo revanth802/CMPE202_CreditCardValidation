@@ -7,4 +7,6 @@ public class MasterCC extends CreditCard{
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	
 }

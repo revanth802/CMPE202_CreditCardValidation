@@ -25,25 +25,25 @@ public ArrayList<CreditCard> validate(String input) throws IOException {
 		br.readLine();
 		while ((line = br.readLine()) != null)   //returns a Boolean value  
 		{  
+			CreateNewCC createCardFactory = new CreateNewCC();
 		String[] Credit = line.split(splitBy);    // use comma as separator  
 		double temp= Double.valueOf(Credit[0]);
-		String ccnumber= String.format("%.0f",temp);;
+		String ccnumber= String.format("%.0f",temp);
 		
-//		System.out.println(ccnumber);
-//		if(CheckSum.check(ccnumber)) {
-//   		 CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],"","error");
-//    			store.add(e);
-//   	 }
 		
 		String checkhere= check1.check(ccnumber);
-		if(!checkhere.equals("N/A")) {
-			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],checkhere,"valid");
-			store.add(e);
-		}
-		else {
-			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],checkhere,"error");
-			store.add(e);
-		}
+//		if(!checkhere.equals("N/A")) {
+//			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],checkhere,"valid");
+//			store.add(e);
+//		}
+//		else {
+//			
+//			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],checkhere,"error");
+//			store.add(e);
+//		}
+		
+		CreditCard e = createCardFactory.createInstance(Credit[0], Credit[1], Credit[2], checkhere);
+		store.add(e);
 		
 		}  
 		br.close();

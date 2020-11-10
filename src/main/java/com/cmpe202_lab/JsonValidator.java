@@ -62,14 +62,18 @@ public class JsonValidator implements Validator{
 	            	 
 	            	 String checkhere= check1.check(ccnumber);
 	            	 
-	            	 if(!checkhere.equals("N/A"))  {
-	         			CreditCard e= new CreditCard(ccnumber,expd,name,checkhere,"valid");
-	         			store.add(e);
-	         		}
-	         		else {
-	         			CreditCard e= new CreditCard(ccnumber,expd,name,checkhere,"error");
-	         			store.add(e);
-	         		}
+//	            	 if(!checkhere.equals("N/A"))  {
+//	         			CreditCard e= new CreditCard(ccnumber,expd,name,checkhere,"valid");
+//	         			store.add(e);
+//	         		}
+//	         		else {
+//	         			CreditCard e= new CreditCard(ccnumber,expd,name,checkhere,"error");
+//	         			store.add(e);
+//	         		}
+	            	 CreateNewCC createCardFactory = new CreateNewCC();
+	            	 
+	            	 CreditCard e = createCardFactory.createInstance(ccnumber, expd, name, checkhere);
+		         		store.add(e);
 	            	 
 	             }
 	           

@@ -51,14 +51,17 @@ public class XmlValidator implements Validator{
 		ccnumber= String.format("%.0f",temp);;
 
 		String checkhere= check1.check(ccnumber);
-		if(!checkhere.equals("N/A")) {
-			CreditCard e= new CreditCard(ccnumber,expd,name,checkhere,"valid");
-			store.add(e);
-		}
-		else {
-			CreditCard e= new CreditCard(ccnumber,expd,name,checkhere,"error");
-			store.add(e);
-		}
+//		if(!checkhere.equals("N/A")) {
+//			CreditCard e= new CreditCard(ccnumber,expd,name,checkhere,"valid");
+//			store.add(e);
+//		}
+//		else {
+//			CreditCard e= new CreditCard(ccnumber,expd,name,checkhere,"error");
+//			store.add(e);
+//		}
+		CreateNewCC createCardFactory = new CreateNewCC();
+		CreditCard e = createCardFactory.createInstance(ccnumber, expd, name, checkhere);
+		  		store.add(e);
 		}  
 		}  
 		}   
