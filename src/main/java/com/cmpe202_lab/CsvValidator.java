@@ -2,8 +2,21 @@ package com.cmpe202_lab;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CsvValidator implements Validator{
+	
+	public boolean isNumeric(String strNum) {
+	    if (strNum == null) {
+	        return false;
+	    }
+	    try {
+	        double d = Double.parseDouble(strNum);
+	    } catch (NumberFormatException nfe) {
+	        return false;
+	    }
+	    return true;
+	}
 	
 public ArrayList<CreditCard> validate(String input) throws IOException {
 	
@@ -26,7 +39,21 @@ public ArrayList<CreditCard> validate(String input) throws IOException {
 		while ((line = br.readLine()) != null)   //returns a Boolean value  
 		{  
 			CreateNewCC createCardFactory = new CreateNewCC();
-		String[] Credit = line.split(splitBy);    // use comma as separator  
+		String[] Credit = line.split(splitBy);    // use comma as separator 
+		System.out.println(Arrays.toString(Credit));
+		System.out.println(Credit.length);
+		if(Credit.length!=3) {
+			CreditCard e= new CreditCard("invalid","invalid","invalid","invalid","invalid");
+			store.add(e);
+			continue;
+		}
+		if(!isNumeric(Credit[0])) {
+			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],"invalid","invalid");
+			store.add(e);
+			continue;
+		}
+		
+		
 		double temp= Double.valueOf(Credit[0]);
 		String ccnumber= String.format("%.0f",temp);
 		
@@ -50,7 +77,7 @@ public ArrayList<CreditCard> validate(String input) throws IOException {
 		 
 	}
 	catch (NumberFormatException e) {
-		
+		System.out.println(e);
 	}
 	catch (FileNotFoundException e) {
 		// TODO Auto-generated catch block
@@ -82,7 +109,7 @@ public void convertFormat(ArrayList<CreditCard> Cards, String outputFile) {
 		catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 	    }
-
 	return ;
 }
+
 }

@@ -16,6 +16,18 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.*; 
 
 public class JsonValidator implements Validator{
+	
+	public boolean isNumeric(String strNum) {
+	    if (strNum == null) {
+	        return false;
+	    }
+	    try {
+	        double d = Double.parseDouble(strNum);
+	    } catch (NumberFormatException nfe) {
+	        return false;
+	    }
+	    return true;
+	}
 	 
 	public ArrayList<CreditCard> validate(String input) throws FileNotFoundException{
 		ArrayList<CreditCard> store= new ArrayList<CreditCard>();

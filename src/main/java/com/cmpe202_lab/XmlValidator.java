@@ -18,6 +18,19 @@ import java.util.ArrayList;
 
 public class XmlValidator implements Validator{
 	
+	
+	public boolean isNumeric(String strNum) {
+	    if (strNum == null) {
+	        return false;
+	    }
+	    try {
+	        double d = Double.parseDouble(strNum);
+	    } catch (NumberFormatException nfe) {
+	        return false;
+	    }
+	    return true;
+	}
+	
 	public ArrayList<CreditCard> validate(String input){
 		CheckMasterCard check1= new CheckMasterCard();
 		CheckVisa check2= new CheckVisa();
