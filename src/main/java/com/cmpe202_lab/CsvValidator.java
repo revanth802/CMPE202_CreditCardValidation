@@ -40,13 +40,17 @@ public ArrayList<CreditCard> validate(String input) throws IOException {
 		{  
 			CreateNewCC createCardFactory = new CreateNewCC();
 		String[] Credit = line.split(splitBy);    // use comma as separator 
-		System.out.println(Arrays.toString(Credit));
-		System.out.println(Credit.length);
+//		System.out.println(Arrays.toString(Credit));
+//		System.out.println(Credit.length);
+		
+		//Invalid inputs
 		if(Credit.length!=3) {
 			CreditCard e= new CreditCard("invalid","invalid","invalid","invalid","invalid");
 			store.add(e);
 			continue;
 		}
+		
+		//If Credit card is not a Numeric value, return invalid
 		if(!isNumeric(Credit[0])) {
 			CreditCard e= new CreditCard(Credit[0],Credit[1],Credit[2],"invalid","invalid");
 			store.add(e);
@@ -69,7 +73,7 @@ public ArrayList<CreditCard> validate(String input) throws IOException {
 //			store.add(e);
 //		}
 		
-		CreditCard e = createCardFactory.createInstance(Credit[0], Credit[1], Credit[2], checkhere);
+		CreditCard e = createCardFactory.createInstance(ccnumber, Credit[1], Credit[2], checkhere);
 		store.add(e);
 		
 		}  

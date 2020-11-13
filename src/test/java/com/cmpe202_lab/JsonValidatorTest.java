@@ -7,26 +7,25 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-public class CsvValidatorTest extends CsvValidator {
-
+public class JsonValidatorTest {
 
 	@Test
 	public void testIsNumeric() {
-     CsvValidator csv = new CsvValidator();
-     csv.isNumeric("898989898");
+     JsonValidator jsonv = new JsonValidator();
+     jsonv.isNumeric("898989898");
 	}
 
 	
 	@Test
 	public void testIsNumeric2() {
-     CsvValidator csv = new CsvValidator();
-     csv.isNumeric("9898dddd");
+	 JsonValidator jsonv = new JsonValidator();
+     jsonv.isNumeric("9898dddd");
 	}
 	
 	@Test
 	public void testValidate() throws IOException {
-     CsvValidator csv = new CsvValidator();
-     ArrayList<CreditCard> alist = csv.validate("Sample.csv");
+	 JsonValidator jsonv = new JsonValidator();
+     ArrayList<CreditCard> alist = jsonv.validate("Sample.json");
      ArrayList<CreditCard> cc = new ArrayList<>();
      cc.add(new CreditCard("3333", "4/20/2030", "revanth", "AmericanExpress", "valid"));
      cc.add(new CreditCard("3333", "4/20/2030", "revanth", "AmericanExpress", "valid"));
@@ -38,11 +37,10 @@ public class CsvValidatorTest extends CsvValidator {
 
 	@Test
 	public void testConvertFormat() {
-       CsvValidator csv = new CsvValidator();
-   	 ArrayList<CreditCard> Cards = new ArrayList<>();
-   	 String outputfile = "test_csv.csv";
+	JsonValidator jsonv = new JsonValidator();
+   	 ArrayList<CreditCard> cccards = new ArrayList<>();
+   	 String outputfile = "test_json.json";
 
-       csv.convertFormat(Cards, outputfile);
+       jsonv.convertFormat(cccards, outputfile);
 	 }
-
 }

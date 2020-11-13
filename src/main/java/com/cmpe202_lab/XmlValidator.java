@@ -60,6 +60,13 @@ public class XmlValidator implements Validator{
 		String ccnumber=eElement.getElementsByTagName("CardNumber").item(0).getTextContent();  
 		String expd=eElement.getElementsByTagName("ExpirationDate").item(0).getTextContent();   
 		String name=eElement.getElementsByTagName("NameOfCardholder").item(0).getTextContent();  
+		
+		if(!isNumeric(ccnumber)) {
+			CreditCard e= new CreditCard(ccnumber,expd,name,"invalid","invalid");
+			store.add(e);
+			continue;
+		}
+		
 		double temp= Double.valueOf(ccnumber);
 		ccnumber= String.format("%.0f",temp);;
 

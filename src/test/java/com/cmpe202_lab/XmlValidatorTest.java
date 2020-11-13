@@ -7,8 +7,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-public class CsvValidatorTest extends CsvValidator {
-
+public class XmlValidatorTest {
 
 	@Test
 	public void testIsNumeric() {
@@ -25,8 +24,8 @@ public class CsvValidatorTest extends CsvValidator {
 	
 	@Test
 	public void testValidate() throws IOException {
-     CsvValidator csv = new CsvValidator();
-     ArrayList<CreditCard> alist = csv.validate("Sample.csv");
+		XmlValidator xml = new XmlValidator();
+     ArrayList<CreditCard> alist = xml.validate("Sample.xml");
      ArrayList<CreditCard> cc = new ArrayList<>();
      cc.add(new CreditCard("3333", "4/20/2030", "revanth", "AmericanExpress", "valid"));
      cc.add(new CreditCard("3333", "4/20/2030", "revanth", "AmericanExpress", "valid"));
@@ -38,11 +37,11 @@ public class CsvValidatorTest extends CsvValidator {
 
 	@Test
 	public void testConvertFormat() {
-       CsvValidator csv = new CsvValidator();
+       XmlValidator xml = new XmlValidator();
    	 ArrayList<CreditCard> Cards = new ArrayList<>();
-   	 String outputfile = "test_csv.csv";
+   	 String outputfile = "test_xml.xml";
 
-       csv.convertFormat(Cards, outputfile);
+       xml.convertFormat(Cards, outputfile);
 	 }
 
 }
