@@ -1,0 +1,5 @@
+"CardNumber","ExpirationDate","NameOfCardHolder","IsValid","Type"
+"5410000000000000","3/20/2030","Alice","valid","MasterCard"
+"4120000000000","4/20/2030","Bob","valid","Visa"
+"341000000000000","5/20/2030","Eve","valid","AmericanExpress"
+"6010000000000000","6/20/2030","Richard","invalid","N/A"

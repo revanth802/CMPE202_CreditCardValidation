@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><root>
+  <row>
+    <CardNumber>5410000000000000</CardNumber>
+    <ExpirationDate>3/20/2030</ExpirationDate>
+    <NameOfCardHolder>Alice</NameOfCardHolder>
+    <IsValid>valid</IsValid>
+    <Type>MasterCard</Type>
+  </row>
+  <row>
+    <CardNumber>4120000000000</CardNumber>
+    <ExpirationDate>4/20/2030</ExpirationDate>
+    <NameOfCardHolder>Bob</NameOfCardHolder>
+    <IsValid>valid</IsValid>
+    <Type>Visa</Type>
+  </row>
+  <row>
+    <CardNumber>341000000000000</CardNumber>
+    <ExpirationDate>5/20/2030</ExpirationDate>
+    <NameOfCardHolder>Eve</NameOfCardHolder>
+    <IsValid>valid</IsValid>
+    <Type>AmericanExpress</Type>
+  </row>
+  <row>
+    <CardNumber>6010000000000000</CardNumber>
+    <ExpirationDate>6/20/2030</ExpirationDate>
+    <NameOfCardHolder>Richard</NameOfCardHolder>
+    <IsValid>invalid</IsValid>
+    <Type>N/A</Type>
+  </row>
+</root>
