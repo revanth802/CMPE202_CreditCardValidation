@@ -98,6 +98,7 @@ public ArrayList<CreditCard> validate(String input) throws IOException {
 }
 
 public void convertFormat(ArrayList<CreditCard> Cards, String outputFile) {
+	System.out.println("CSV Conversion:");
 
        	 File file = new File(outputFile);
 		   try {

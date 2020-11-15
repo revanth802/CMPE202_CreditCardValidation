@@ -94,6 +94,8 @@ public class XmlValidator implements Validator{
 }
 
 	public void convertFormat(ArrayList<CreditCard> cards,String output) {
+		System.out.println("XML Conversion:");
+
 		
 		 try {
 			 

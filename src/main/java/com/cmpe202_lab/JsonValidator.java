@@ -103,13 +103,15 @@ public class JsonValidator implements Validator{
 		}
 	
 	public void convertFormat(ArrayList<CreditCard> cards, String outputFile) {
+		System.out.println("JSON Conversion:");
+
 		JSONArray ccList = new JSONArray();
 		for(CreditCard cc:cards) {
 //			CardNumber,ExpirationDate,NameOfCardHolder,IsValid,Type
 			JSONObject ccobject = new JSONObject();
 	        ccobject.put("CardNumber", Long.parseLong(cc.getCardNumber()));
 	        ccobject.put("ExpirationDate", cc.getExpiryDate());
-	        System.out.println(cc.getExpiryDate());
+//	        System.out.println(cc.getExpiryDate());
 	        ccobject.put("NameOfCardHolder", cc.getName());
 	        ccobject.put("IsValid", cc.getValid_cc());
 	        ccobject.put("Type", cc.getType());
