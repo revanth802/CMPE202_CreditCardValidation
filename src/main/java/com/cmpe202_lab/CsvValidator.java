@@ -2,7 +2,9 @@ package com.cmpe202_lab;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
+
+import com.opencsv.CSVWriter;
 
 public class CsvValidator implements Validator{
 	
@@ -38,7 +40,7 @@ public ArrayList<CreditCard> validate(String input) throws IOException {
 		br.readLine();
 		while ((line = br.readLine()) != null)   //returns a Boolean value  
 		{  
-			CreateNewCC createCardFactory = new CreateNewCC();
+		CreateNewCC createCardFactory = new CreateNewCC();
 		String[] Credit = line.split(splitBy);    // use comma as separator 
 //		System.out.println(Arrays.toString(Credit));
 //		System.out.println(Credit.length);
@@ -97,23 +99,28 @@ public ArrayList<CreditCard> validate(String input) throws IOException {
 
 public void convertFormat(ArrayList<CreditCard> Cards, String outputFile) {
 
-	try (PrintWriter writer = new PrintWriter(new File(outputFile))) {
+       	 File file = new File(outputFile);
+		   try {
+		       FileWriter outputfile = new FileWriter(file);
+		 
+		       CSVWriter writer = new CSVWriter(outputfile);
+		 
+		       List<String[]> data = new ArrayList<String[]>();
+		       data.add(new String[] {"CardNumber","ExpirationDate","NameOfCardHolder","IsValid","Type"});
+		      for(int i=0;i<Cards.size();i++)
+		      {
+		       data.add(new String[] {String.valueOf(Cards.get(i).getCardNumber()), Cards.get(i).getExpiryDate(), Cards.get(i).getName(),
+		    		   Cards.get(i).getValid_cc(),Cards.get(i).getType()});
+		       }
+		      
+		       writer.writeAll(data);
 
-	      StringBuilder sb = new StringBuilder();
-	      sb.append("CardNumber,ExpirationDate,NameOfCardHolder,IsValid,Type");
-	      sb.append('\n');
-//	      System.out.println(Cards.size());
-	      for (CreditCard card: Cards) {
-				sb.append(card.getCardNumber()+','+card.getExpiryDate()+','+card.getName()+','+card.getValid_cc()+',');
-				sb.append(card.getType()+'\n');
-				System.out.println(sb.toString());
-	      }
-	      writer.write(sb.toString());
-	    }
-		catch (FileNotFoundException e) {
-			System.out.println(e.getMessage());
-	    }
-	return ;
+		       writer.close();
+		   }
+		   catch (IOException e) {
+		       e.printStackTrace();
+		   }
+}
+	
 }
 
-}

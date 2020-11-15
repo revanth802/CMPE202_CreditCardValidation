@@ -10,10 +10,10 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		String inputFile="sample.csv";
-		String outputFile="sample1.csv";
+		String inputFile="sample.json";
+		String outputFile="sample1.json";
 		
-		ArrayList<CreditCard> output=new ArrayList<>();
+		ArrayList<CreditCard> output=new ArrayList<CreditCard>();
 		
 		if(inputFile.contains(".csv")) {
 //			CsvValidator csv= new CsvValidator();

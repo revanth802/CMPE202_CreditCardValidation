@@ -27,7 +27,7 @@ public class CsvValidatorTest extends CsvValidator {
 	public void testValidate() throws IOException {
      CsvValidator csv = new CsvValidator();
      ArrayList<CreditCard> alist = csv.validate("Sample.csv");
-     ArrayList<CreditCard> cc = new ArrayList<>();
+     ArrayList<CreditCard> cc = new ArrayList<CreditCard>();
      cc.add(new CreditCard("3333", "4/20/2030", "revanth", "AmericanExpress", "valid"));
      cc.add(new CreditCard("3333", "4/20/2030", "revanth", "AmericanExpress", "valid"));
      cc.add(new CreditCard("3333", "4/20/2030","revanth", "AmericanExpress", "valid"));
@@ -39,7 +39,7 @@ public class CsvValidatorTest extends CsvValidator {
 	@Test
 	public void testConvertFormat() {
        CsvValidator csv = new CsvValidator();
-   	 ArrayList<CreditCard> Cards = new ArrayList<>();
+   	 ArrayList<CreditCard> Cards = new ArrayList<CreditCard>();
    	 String outputfile = "test_csv.csv";
 
        csv.convertFormat(Cards, outputfile);

@@ -43,13 +43,14 @@ public class JsonValidator implements Validator{
 //		CheckSum checkSum= new CheckSum();
 		 JSONParser jsonParser = new JSONParser();
          
-	        try (FileReader reader = new FileReader(input))
+	        try 
 	        {
+	        	FileReader reader = new FileReader(input);
 	            //Read JSON file
 	            Object obj = jsonParser.parse(reader);
 	 
 	            JSONArray users = (JSONArray) obj;
-	            System.out.println(users);
+//	            System.out.println(users);
 //	            System.);
 	      
 	             for(int i=0;i<users.size();i++) {
@@ -71,6 +72,13 @@ public class JsonValidator implements Validator{
 	            	 name=name.replaceAll("\\s+$","");
 	            	 name=name.replace("\"","");
 	            	 name=name.replace("}","");
+
+	            		//If Credit card is not a Numeric value, return invalid
+	            		if(!isNumeric(ccnumber)) {
+	            			CreditCard e= new CreditCard(ccnumber, expd, name,"invalid","invalid");
+	            			store.add(e);
+	            			continue;
+	            		}
 	            	 
 	            	 String checkhere= check1.check(ccnumber);
 	            	 

@@ -26,7 +26,7 @@ public class JsonValidatorTest {
 	public void testValidate() throws IOException {
 	 JsonValidator jsonv = new JsonValidator();
      ArrayList<CreditCard> alist = jsonv.validate("Sample.json");
-     ArrayList<CreditCard> cc = new ArrayList<>();
+     ArrayList<CreditCard> cc = new ArrayList<CreditCard>();
      cc.add(new CreditCard("3333", "4/20/2030", "revanth", "AmericanExpress", "valid"));
      cc.add(new CreditCard("3333", "4/20/2030", "revanth", "AmericanExpress", "valid"));
      cc.add(new CreditCard("3333", "4/20/2030","revanth", "AmericanExpress", "valid"));
@@ -38,7 +38,7 @@ public class JsonValidatorTest {
 	@Test
 	public void testConvertFormat() {
 	JsonValidator jsonv = new JsonValidator();
-   	 ArrayList<CreditCard> cccards = new ArrayList<>();
+   	 ArrayList<CreditCard> cccards = new ArrayList<CreditCard>();
    	 String outputfile = "test_json.json";
 
        jsonv.convertFormat(cccards, outputfile);

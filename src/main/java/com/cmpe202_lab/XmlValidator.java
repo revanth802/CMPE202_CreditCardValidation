@@ -48,12 +48,12 @@ public class XmlValidator implements Validator{
 		DocumentBuilder db = dbf.newDocumentBuilder();  
 		Document doc = db.parse(file);  
 		doc.getDocumentElement().normalize();  
-		System.out.println("Root element: " + doc.getDocumentElement().getNodeName());  
+//		System.out.println("Root element: " + doc.getDocumentElement().getNodeName());  
 		NodeList nodeList = doc.getElementsByTagName("row");  
 		for (int itr = 0; itr < nodeList.getLength(); itr++)   
 		{  
 		Node node = nodeList.item(itr);  
-		System.out.println("\nNode Name :" + node.getNodeName());  
+//		System.out.println("\nNode Name :" + node.getNodeName());  
 		if (node.getNodeType() == Node.ELEMENT_NODE)   
 		{  
 		Element eElement = (Element) node;  
@@ -147,7 +147,7 @@ public class XmlValidator implements Validator{
 	 
 	            transformer.transform(domSource, streamResult);
 	 
-	            System.out.println("Done creating XML File");
+//	            System.out.println("Done creating XML File");
 	 
 	        } catch (ParserConfigurationException pce) {
 	            pce.printStackTrace();

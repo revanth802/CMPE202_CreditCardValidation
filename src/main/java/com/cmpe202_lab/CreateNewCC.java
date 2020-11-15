@@ -24,7 +24,7 @@ public class CreateNewCC implements CreditCardFactory{
 		}
 		else 
 		{
-			return  new CreditCard(Credit0, Credit1, Credit2, checkhere, "error");
+			return  new CreditCard(Credit0, Credit1, Credit2, checkhere, "invalid");
 		}
 	}
 }

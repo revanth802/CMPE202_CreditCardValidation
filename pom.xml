@@ -3,14 +3,16 @@
   <groupId>individual-project-revanth802</groupId>
   <artifactId>individual-project-revanth802</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
   <name>cmpe202_lab</name>
   <description>lab assignment for cmpe 202</description>
   <!-- https://mvnrepository.com/artifact/org.json/json -->
   <dependencies>
+<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
 <dependency>
-    <groupId>org.json</groupId>
-    <artifactId>json</artifactId>
-    <version>20200518</version>
+    <groupId>com.opencsv</groupId>
+    <artifactId>opencsv</artifactId>
+    <version>3.3</version>
 </dependency>
 <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
 <dependency>
