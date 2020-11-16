@@ -105,27 +105,46 @@ public class JsonValidator implements Validator{
 	public void convertFormat(ArrayList<CreditCard> cards, String outputFile) {
 		System.out.println("JSON Conversion started");
 
-		JSONArray ccList = new JSONArray();
-		for(CreditCard cc:cards) {
-//			CardNumber,ExpirationDate,NameOfCardHolder,IsValid,Type
-			JSONObject ccobject = new JSONObject();
-	        ccobject.put("CardNumber", Long.parseLong(cc.getCardNumber()));
-	        ccobject.put("ExpirationDate", cc.getExpiryDate());
-//	        System.out.println(cc.getExpiryDate());
-	        ccobject.put("NameOfCardHolder", cc.getName());
-	        ccobject.put("Type", cc.getType());
-	        ccobject.put("IsValid", cc.getValid_cc());
-	        ccList.add(ccobject);
-		}
-		try{
-            FileWriter  file = new FileWriter(outputFile,false);
-            ccList.writeJSONString(ccList, file);
-            file.close();
-            System.out.println("JSON Conversion done");
-        }catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	}
+		try {
+  			FileWriter fw = new FileWriter(outputFile);
+  			fw.write("[");
+  			fw.write('\n');
+  			for (int i = 0; i < cards.size(); i++) {
+  				CreditCard cc = cards.get(i);
+  				fw.write(" "+"{");
+  				fw.write('\n');
+  				fw.write("    "+"\"CardNumber\": "+ cc.getCardNumber()+ ",");
+  				fw.write('\n');
+  				fw.write("    "+"\"ExpiryDate\": "+ cc.getExpiryDate()+ ",");
+  				fw.write('\n');
+  				fw.write("    "+"\"NameOfCardHolder\": "+ cc.getName()+ ",");
+  				fw.write('\n');
+  				fw.write("    "+"\"Type\": " + "\"" + cc.getType() + "\"" + " ,");
+  				fw.write('\n');
+  				fw.write("    "+"\"IsValid\": " + "\"" + cc.getValid_cc() + "\"" + " ,");
+  				fw.write('\n');
+
+  			
+  				if(i == cards.size() - 1) {
+  					fw.write(" "+"}");
+  				}
+  				else {
+  					fw.write(" "+"},");
+  				}
+  				fw.write('\n');
+  				
+  			}
+  			fw.write("]");
+  			fw.close();
+  			System.out.println("JSON conversion done");
+  		}
+  		catch (IOException e) {
+  			System.out.println("An error occurred.");
+  			e.printStackTrace();
+  		}
+
+
+  	}
 	
 	
 	}
