@@ -113,15 +113,15 @@ public class JsonValidator implements Validator{
   				CreditCard cc = cards.get(i);
   				fw.write(" "+"{");
   				fw.write('\n');
-  				fw.write("    "+"\"CardNumber\": "+ cc.getCardNumber()+ ",");
+  				fw.write("    "+"\"CardNumber\": "+"\"" + cc.getCardNumber()+ "\""+ ",");
   				fw.write('\n');
-  				fw.write("    "+"\"ExpiryDate\": "+ cc.getExpiryDate()+ ",");
+  				fw.write("    "+"\"ExpiryDate\": "+ "\"" +cc.getExpiryDate()+ "\""+ ",");
   				fw.write('\n');
-  				fw.write("    "+"\"NameOfCardHolder\": "+ cc.getName()+ ",");
+  				fw.write("    "+"\"NameOfCardHolder\": "+"\"" + cc.getName()+ "\""+ ",");
   				fw.write('\n');
   				fw.write("    "+"\"Type\": " + "\"" + cc.getType() + "\"" + " ,");
   				fw.write('\n');
-  				fw.write("    "+"\"IsValid\": " + "\"" + cc.getValid_cc() + "\"" + " ,");
+  				fw.write("    "+"\"IsValid\": " + "\"" + cc.getValid_cc() + "\"" );
   				fw.write('\n');
 
   			
