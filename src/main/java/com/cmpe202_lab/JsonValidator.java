@@ -113,8 +113,8 @@ public class JsonValidator implements Validator{
 	        ccobject.put("ExpirationDate", cc.getExpiryDate());
 //	        System.out.println(cc.getExpiryDate());
 	        ccobject.put("NameOfCardHolder", cc.getName());
-	        ccobject.put("IsValid", cc.getValid_cc());
 	        ccobject.put("Type", cc.getType());
+	        ccobject.put("IsValid", cc.getValid_cc());
 	        ccList.add(ccobject);
 		}
 		try{

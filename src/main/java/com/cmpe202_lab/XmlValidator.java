@@ -116,20 +116,20 @@ public class XmlValidator implements Validator{
 	            Element expd = document.createElement("ExpirationDate");
 	            expd.appendChild(document.createTextNode(card.getExpiryDate()));
 	            record.appendChild(expd);
-	 
-	            // email element
+	            
 	            Element name = document.createElement("NameOfCardHolder");
 	            name.appendChild(document.createTextNode(card.getName()));
 	            record.appendChild(name);
-	 
-	            // department elements
-	            Element valid = document.createElement("IsValid");
-	            valid.appendChild(document.createTextNode(card.getValid_cc()));
-	            record.appendChild(valid);
 	            
 	            Element cctype = document.createElement("Type");
 	            cctype.appendChild(document.createTextNode(card.getType()));
 	            record.appendChild(cctype);
+	 
+	            Element valid = document.createElement("IsValid");
+	            valid.appendChild(document.createTextNode(card.getValid_cc()));
+	            record.appendChild(valid);
+	            
+	          
 	            }
 	 
 	            TransformerFactory transformerFactory = TransformerFactory.newInstance();
