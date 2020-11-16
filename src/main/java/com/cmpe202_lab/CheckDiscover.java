@@ -14,7 +14,7 @@ public class CheckDiscover implements CheckCardHandler{
 		String first= creditCardNumber.substring(0,4);
 		if(first.equals("6011") && creditCardNumber.length()==16)
 			return "Discover";
-		return "N/A";
+		return "invalid";
 	}
 
 }

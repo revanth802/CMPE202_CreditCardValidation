@@ -71,14 +71,7 @@ public class XmlValidator implements Validator{
 		ccnumber= String.format("%.0f",temp);;
 
 		String checkhere= check1.check(ccnumber);
-//		if(!checkhere.equals("N/A")) {
-//			CreditCard e= new CreditCard(ccnumber,expd,name,checkhere,"valid");
-//			store.add(e);
-//		}
-//		else {
-//			CreditCard e= new CreditCard(ccnumber,expd,name,checkhere,"error");
-//			store.add(e);
-//		}
+
 		CreateNewCC createCardFactory = new CreateNewCC();
 		CreditCard e = createCardFactory.createInstance(ccnumber, expd, name, checkhere);
 		  		store.add(e);
@@ -94,7 +87,7 @@ public class XmlValidator implements Validator{
 }
 
 	public void convertFormat(ArrayList<CreditCard> cards,String output) {
-		System.out.println("XML Conversion:");
+		System.out.println("XML Conversion started");
 
 		
 		 try {
@@ -149,7 +142,7 @@ public class XmlValidator implements Validator{
 	 
 	            transformer.transform(domSource, streamResult);
 	 
-//	            System.out.println("Done creating XML File");
+	            System.out.println("XML File conversion done");
 	 
 	        } catch (ParserConfigurationException pce) {
 	            pce.printStackTrace();

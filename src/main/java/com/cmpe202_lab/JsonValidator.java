@@ -103,7 +103,7 @@ public class JsonValidator implements Validator{
 		}
 	
 	public void convertFormat(ArrayList<CreditCard> cards, String outputFile) {
-		System.out.println("JSON Conversion:");
+		System.out.println("JSON Conversion started");
 
 		JSONArray ccList = new JSONArray();
 		for(CreditCard cc:cards) {
@@ -121,6 +121,7 @@ public class JsonValidator implements Validator{
             FileWriter  file = new FileWriter(outputFile,false);
             ccList.writeJSONString(ccList, file);
             file.close();
+            System.out.println("JSON Conversion done");
         }catch (IOException e) {
 	            e.printStackTrace();
 	        }
