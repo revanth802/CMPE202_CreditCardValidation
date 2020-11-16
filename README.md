@@ -23,6 +23,14 @@ mvn clean install
 ```
 The above compilation creates a jar file in the target location as mentioned above
 
+For Junit tests:
+Use the below command-
+```
+mvn test
+```
+
+
+
 
 
 
