@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.cmpe202_lab.XmlValidatorTest" time="0.015" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.cmpe202_lab.XmlValidatorTest" time="0.007" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -18,7 +18,7 @@
     <property name="user.country" value="IN"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_181\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\revan\AppData\Local\Temp\surefire5440896168381805101\surefirebooter7160837691392172484.jar C:\Users\revan\AppData\Local\Temp\surefire5440896168381805101 2020-11-15T17-58-00_952-jvmRun1 surefire5718316493643972737tmp surefire_0469351313366798715tmp"/>
+    <property name="sun.java.command" value="C:\Users\revan\AppData\Local\Temp\surefire7770279479720488660\surefirebooter4284217719727989340.jar C:\Users\revan\AppData\Local\Temp\surefire7770279479720488660 2020-11-15T18-06-47_480-jvmRun1 surefire251446890407229766tmp surefire_04846576153898922275tmp"/>
     <property name="surefire.test.class.path" value="C:\Users\revan\git\individual-project-revanth802\target\test-classes;C:\Users\revan\git\individual-project-revanth802\target\classes;C:\Users\revan\.m2\repository\com\opencsv\opencsv\3.3\opencsv-3.3.jar;C:\Users\revan\.m2\repository\org\apache\commons\commons-lang3\3.3.2\commons-lang3-3.3.2.jar;C:\Users\revan\.m2\repository\com\googlecode\json-simple\json-simple\1.1\json-simple-1.1.jar;C:\Users\revan\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\revan\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\revan"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\revan\AppData\Local\Temp\surefire5440896168381805101\surefirebooter7160837691392172484.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\revan\AppData\Local\Temp\surefire7770279479720488660\surefirebooter4284217719727989340.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_181\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_181\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -61,7 +61,7 @@
     <property name="java.class.version" value="52.0"/>
   </properties>
   <testcase name="testIsNumeric" classname="com.cmpe202_lab.XmlValidatorTest" time="0"/>
-  <testcase name="testConvertFormat" classname="com.cmpe202_lab.XmlValidatorTest" time="0.007"/>
-  <testcase name="testValidate" classname="com.cmpe202_lab.XmlValidatorTest" time="0.003"/>
+  <testcase name="testConvertFormat" classname="com.cmpe202_lab.XmlValidatorTest" time="0.004"/>
+  <testcase name="testValidate" classname="com.cmpe202_lab.XmlValidatorTest" time="0"/>
   <testcase name="testIsNumeric2" classname="com.cmpe202_lab.XmlValidatorTest" time="0"/>
 </testsuite>
