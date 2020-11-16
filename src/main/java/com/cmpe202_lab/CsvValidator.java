@@ -107,11 +107,11 @@ public void convertFormat(ArrayList<CreditCard> Cards, String outputFile) {
 		       CSVWriter writer = new CSVWriter(outputfile);
 		 
 		       List<String[]> data = new ArrayList<String[]>();
-		       data.add(new String[] {"CardNumber","ExpirationDate","NameOfCardHolder","IsValid","Type"});
+		       data.add(new String[] {"CardNumber","ExpirationDate","NameOfCardHolder","Type","IsValid"});
 		      for(int i=0;i<Cards.size();i++)
 		      {
 		       data.add(new String[] {String.valueOf(Cards.get(i).getCardNumber()), Cards.get(i).getExpiryDate(), Cards.get(i).getName(),
-		    		   Cards.get(i).getValid_cc(),Cards.get(i).getType()});
+		    		   Cards.get(i).getType(),Cards.get(i).getValid_cc()});
 		       }
 		      
 		       writer.writeAll(data);
