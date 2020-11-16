@@ -16,7 +16,7 @@ public class ContextTest {
 
 	@Test
 	public void testExecuteValidate() throws IOException {
-		 ArrayList<CreditCard> cardsexpected  = strategy.validate("sample.csv");
+		 ArrayList<CreditCard> cardsexpected  = strategy.validate("Sample-tests/Sample.csv");
 	     cc.add(new CreditCard("5410000000000000","3/20/2030","Alice","MasterCard","valid"));
 	     cc.add(new CreditCard("4120000000000","4/20/2030","Bob","Visa","valid"));
 	     cc.add(new CreditCard("341000000000000","5/20/2030","Eve","AmericanExpress","valid"));
@@ -30,7 +30,7 @@ public class ContextTest {
 	     cc.add(new CreditCard("4120000000000","4/20/2030","Bob","Visa","valid"));
 	     cc.add(new CreditCard("341000000000000","5/20/2030","Eve","AmericanExpress","valid"));
 	     cc.add(new CreditCard("6010000000000000","6/20/2030","Richard","N/A","invalid"));
-		strategy.convertFormat(cc, "test_context.csv");
+		strategy.convertFormat(cc, "Sample-tests/test_context.csv");
 	     
 	}
 
